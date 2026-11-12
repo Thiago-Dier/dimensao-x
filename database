@@ -1,0 +1,49 @@
+CREATE TABLE jogadores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_responsavel VARCHAR(60) NOT NULL,
+    clube VARCHAR(80) NOT NULL,
+    atleta VARCHAR(100) NOT NULL,
+    gols INT NOT NULL,
+    assistencias INT NOT NULL,
+    valor_milhoes DECIMAL(8,2) NOT NULL
+);
+
+INSERT INTO jogadores
+    (nome_responsavel, clube, atleta, gols, assistencias, valor_milhoes)
+VALUES
+    ('Thiago',  'Sport',     'Patrick de Paula', 3,  2,  2.50),
+    ('Eduardo', 'Palmeiras', 'Flaco Lopez',      23, 11, 30.00),
+    ('Joao',    'Santos',    'Neymar Jr',         10, 8,  8.00),
+    ('Lucas',   'Flamengo',  'Arrascaeta',        10, 5, 14.00),
+    ('Miotti',  'Paysandu',  'Cristiano Ronaldo', 25, 6,  10.00);
+
+-- Conferir os registros cadastrados.
+SELECT * FROM jogadores;
+
+-- =========================================================
+-- CONSULTAS DE DEMONSTRACAO DOS COMANDOS DA AULA
+-- =========================================================
+
+-- 1. COUNT(): conta quantos jogadores existem.
+SELECT COUNT(*) AS total_jogadores
+FROM jogadores;
+
+-- 2. MAX(): encontra o maior numero de gols.
+SELECT MAX(gols) AS maior_numero_gols
+FROM jogadores;
+
+-- 3. MIN(): encontra o menor numero de gols.
+SELECT MIN(gols) AS menor_numero_gols
+FROM jogadores;
+
+-- 4. SUM(): soma os valores de mercado (em milhoes de euros).
+SELECT SUM(valor_milhoes) AS valor_total_milhoes
+FROM jogadores;
+
+-- 5. AVG(): calcula a media de gols.
+SELECT AVG(gols) AS media_gols
+FROM jogadores;
+
+-- 6. DISTINCT: lista os clubes sem repeticao.
+SELECT DISTINCT clube
+FROM jogadores;
